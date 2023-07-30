@@ -9,10 +9,10 @@ ARGV.each do |arg|
     i = 0
     l = result.size
     while !is_inserted && i < l do
-        if result[i] <= i_arg # Use <= instead of < for correct insertion position
+        if result[i] >= i_arg # Use >= for descending order
             i += 1
         else
-            result.insert(i, i_arg) # Use i instead of i - 1 for insertion index
+            result.insert(i, i_arg)
             is_inserted = true
             break
         end
