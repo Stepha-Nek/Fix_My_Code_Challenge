@@ -6,6 +6,7 @@
     of the program.
 */
 
+// Check if the size argument is missing
 if (process.argv.length <= 2) {
     process.stderr.write("Missing argument\n");
     process.stderr.write("Usage: ./1-print_square.js <size>\n");
@@ -13,18 +14,15 @@ if (process.argv.length <= 2) {
     process.exit(1);
 }
 
-const size = parseInt(process.argv[2]);
-
-// Check if the size argument is a valid number
-if (isNaN(size) || size <= 0) {
-    process.stderr.write("Invalid size argument. Please provide a positive integer.\n");
-    process.exit(1);
-}
+// Parse the size argument from the command line and convert it to an integer
+const size = parseInt(process.argv[2]); // The radix should be removed to parse the size as a base-10 integer
 
 for (let i = 0; i < size; i++) {
     for (let j = 0; j < size; j++) {
+        // Print the character '#' for each position
         process.stdout.write("#");
     }
+    // Move to the next line after printing a row
     process.stdout.write("\n");
 }
 
